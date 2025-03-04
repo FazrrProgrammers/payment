@@ -36,6 +36,42 @@
             margin-bottom: 15px;
         }
 
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .menu button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .menu .active {
+            background: #007bff;
+            color: white;
+        }
+
+        .menu button:not(.active) {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .content.active {
+            display: block;
+        }
+
         .nomor {
             display: flex;
             align-items: center;
@@ -43,7 +79,6 @@
             background: #f0f0f0;
             padding: 10px;
             border-radius: 8px;
-            margin-top: 10px;
             font-size: 18px;
             letter-spacing: 1px;
         }
@@ -62,10 +97,6 @@
             background: #0056b3;
         }
 
-        .qris {
-            margin-top: 20px;
-        }
-
         .qris img {
             width: 100%;
             max-width: 250px;
@@ -77,22 +108,36 @@
             margin-top: 10px;
             color: #555;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Pembayaran</h2>
-        
-        <p>Nomor DANA:</p>
-        <div class="nomor">
-            <span id="nomorTampil">081****7890</span>
-            <button class="copy-btn" onclick="copyText()">
-                <i class="fas fa-copy"></i>
-            </button>
+        <h2>Pilih Metode Pembayaran</h2>
+
+        <div class="menu">
+            <button class="active" onclick="showContent('dana')">DANA</button>
+            <button onclick="showContent('qris')">QRIS</button>
         </div>
 
-        <div class="qris">
+        <!-- DANA Section -->
+        <div id="dana" class="content active">
+            <p>Nomor DANA:</p>
+            <div class="nomor">
+                <span id="nomorTampil">081****7890</span>
+                <button class="copy-btn" onclick="copyText()">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- QRIS Section -->
+        <div id="qris" class="content">
             <h3>Scan QRIS</h3>
             <img src="qris-placeholder.png" alt="QRIS">
             <p>Scan untuk membayar</p>
@@ -106,6 +151,14 @@
             navigator.clipboard.writeText(nomorAsli).then(() => {
                 alert("Nomor DANA disalin: " + nomorAsli);
             });
+        }
+
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+
+            document.querySelectorAll('.menu button').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
         }
     </script>
 
