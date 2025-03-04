@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
@@ -18,22 +18,26 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #007bff, #00d4ff);
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
         }
 
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-align: center;
             width: 90%;
             max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         h2 {
-            color: #333;
+            font-size: 22px;
             margin-bottom: 15px;
+            color: #f1f5f9;
         }
 
         .menu {
@@ -45,22 +49,19 @@
 
         .menu button {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             border: none;
             cursor: pointer;
             border-radius: 8px;
             font-size: 16px;
+            font-weight: bold;
             transition: 0.3s;
-        }
-
-        .menu .active {
-            background: #007bff;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
         }
 
-        .menu button:not(.active) {
-            background: #f0f0f0;
-            color: #333;
+        .menu .active {
+            background: #3b82f6;
         }
 
         .content {
@@ -76,15 +77,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #f0f0f0;
-            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px;
             border-radius: 8px;
             font-size: 18px;
+            color: white;
             letter-spacing: 1px;
+            margin-top: 10px;
         }
 
         .copy-btn {
-            background: #007bff;
+            background: #3b82f6;
             border: none;
             color: white;
             padding: 10px;
@@ -94,7 +97,7 @@
         }
 
         .copy-btn:hover {
-            background: #0056b3;
+            background: #2563eb;
         }
 
         .qris {
@@ -104,9 +107,14 @@
         .qris a {
             display: inline-block;
             text-decoration: none;
-            color: #007bff;
+            color: #3b82f6;
             font-weight: bold;
-            margin-top: 10px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .qris a:hover {
+            color: #93c5fd;
         }
 
         @keyframes fadeIn {
@@ -139,7 +147,7 @@
         <!-- QRIS Section -->
         <div id="qris" class="content">
             <h3>Scan QRIS</h3>
-            <p><a href="https://example.com/qris.png" target="_blank">Klik di sini untuk melihat QRIS</a></p>
+            <p><a href="https://example.com/qris.png" target="_blank">🔗 Klik di sini untuk melihat QRIS</a></p>
         </div>
     </div>
 
