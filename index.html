@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .qris {
+            width: 100%;
+            max-width: 250px;
+            margin-top: 10px;
+        }
+        .copy-btn {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Pembayaran</h2>
+        <p>Nomor DANA:</p>
+        <input type="text" id="nomorDana" value="081234567890" readonly>
+        <button class="copy-btn" onclick="copyText()">Salin</button>
+
+        <h3>Scan QRIS</h3>
+        <img src="qris-placeholder.png" alt="QRIS" class="qris">
+        <p>Scan QRIS untuk membayar</p>
+    </div>
+
+    <script>
+        function copyText() {
+            var copyText = document.getElementById("nomorDana");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Nomor DANA disalin: " + copyText.value);
+        }
+    </script>
+
+</body>
+</html>
