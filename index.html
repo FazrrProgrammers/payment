@@ -4,36 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pembayaran</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #007bff, #00d4ff);
         }
+
         .container {
-            max-width: 400px;
-            margin: auto;
+            background: white;
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
         }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .nomor {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            background: #007bff;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+
         .qris {
+            margin-top: 20px;
+        }
+
+        .qris img {
             width: 100%;
             max-width: 250px;
-            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-        .copy-btn {
+
+        .qris p {
             margin-top: 10px;
-            padding: 10px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .copy-btn:hover {
-            background-color: #0056b3;
+            color: #555;
         }
     </style>
 </head>
@@ -41,22 +83,29 @@
 
     <div class="container">
         <h2>Pembayaran</h2>
+        
         <p>Nomor DANA:</p>
-        <input type="text" id="nomorDana" value="081234567890" readonly>
-        <button class="copy-btn" onclick="copyText()">Salin</button>
+        <div class="nomor">
+            <span id="nomorTampil">081****7890</span>
+            <button class="copy-btn" onclick="copyText()">
+                <i class="fas fa-copy"></i>
+            </button>
+        </div>
 
-        <h3>Scan QRIS</h3>
-        <img src="qris-placeholder.png" alt="QRIS" class="qris">
-        <p>Scan QRIS untuk membayar</p>
+        <div class="qris">
+            <h3>Scan QRIS</h3>
+            <img src="qris-placeholder.png" alt="QRIS">
+            <p>Scan untuk membayar</p>
+        </div>
     </div>
 
     <script>
+        const nomorAsli = "081234567890"; // Nomor asli
+
         function copyText() {
-            var copyText = document.getElementById("nomorDana");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(copyText.value);
-            alert("Nomor DANA disalin: " + copyText.value);
+            navigator.clipboard.writeText(nomorAsli).then(() => {
+                alert("Nomor DANA disalin: " + nomorAsli);
+            });
         }
     </script>
 
