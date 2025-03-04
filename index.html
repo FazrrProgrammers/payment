@@ -18,7 +18,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            background: linear-gradient(135deg, #6d28d9, #2563eb);
             color: white;
         }
 
@@ -32,6 +32,7 @@
             width: 90%;
             max-width: 400px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
         }
 
         h2 {
@@ -61,7 +62,7 @@
         }
 
         .menu .active {
-            background: #3b82f6;
+            background: #4f46e5;
         }
 
         .content {
@@ -87,7 +88,7 @@
         }
 
         .copy-btn {
-            background: #3b82f6;
+            background: #4f46e5;
             border: none;
             color: white;
             padding: 10px;
@@ -97,7 +98,7 @@
         }
 
         .copy-btn:hover {
-            background: #2563eb;
+            background: #4338ca;
         }
 
         .qris {
@@ -107,14 +108,23 @@
         .qris a {
             display: inline-block;
             text-decoration: none;
-            color: #3b82f6;
+            color: #4f46e5;
             font-weight: bold;
             font-size: 18px;
             transition: 0.3s;
         }
 
         .qris a:hover {
-            color: #93c5fd;
+            color: #a5b4fc;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         @keyframes fadeIn {
@@ -149,6 +159,9 @@
             <h3>Scan QRIS</h3>
             <p><a href="https://example.com/qris.png" target="_blank">🔗 Klik di sini untuk melihat QRIS</a></p>
         </div>
+
+        <!-- Watermark -->
+        <div class="watermark">© 2025 Payment Service</div>
     </div>
 
     <script>
