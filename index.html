@@ -18,13 +18,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #6d28d9, #2563eb);
+            background: linear-gradient(135deg, #1e3a8a, #9333ea);
             color: white;
             overflow: hidden;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             padding: 25px;
             border-radius: 20px;
             backdrop-filter: blur(12px);
@@ -64,8 +64,8 @@
         }
 
         .menu .active {
-            background: #4f46e5;
-            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.5);
+            background: #6366f1;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.5);
         }
 
         .content {
@@ -91,7 +91,7 @@
         }
 
         .copy-btn {
-            background: #4f46e5;
+            background: #6366f1;
             border: none;
             color: white;
             padding: 10px 12px;
@@ -102,7 +102,7 @@
         }
 
         .copy-btn:hover {
-            background: #4338ca;
+            background: #4f46e5;
         }
 
         .qris {
@@ -155,11 +155,6 @@
             font-size: 12px;
             color: rgba(255, 255, 255, 0.7);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body>
@@ -172,7 +167,6 @@
             <button onclick="showContent('qris')">QRIS</button>
         </div>
 
-        <!-- DANA Section -->
         <div id="dana" class="content active">
             <p>Nomor DANA:</p>
             <div class="nomor">
@@ -183,36 +177,26 @@
             </div>
         </div>
 
-        <!-- QRIS Section -->
         <div id="qris" class="content">
             <h3>Scan QRIS</h3>
-            <p><a href="https://example.com/qris.png" target="_blank">🔗 Klik di sini untuk melihat QRIS</a></p>
+            <p><a href="#" target="_blank">🔗 Klik di sini untuk melihat QRIS</a></p>
         </div>
 
-        <!-- Tombol Konfirmasi Pembayaran -->
-        <a href="https://t.me/admin_username?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran.%20Berikut%20bukti%20transfer%20saya:" target="_blank" class="confirm-btn">
+        <a href="#" target="_blank" class="confirm-btn">
             <i class="fab fa-telegram"></i> Konfirmasi Pembayaran
         </a>
 
-        <!-- Watermark -->
         <div class="watermark">© 2025 Payment Service</div>
     </div>
 
     <script>
-        const nomorAsli = "081234567890"; // Nomor asli
-
         function copyText() {
-            navigator.clipboard.writeText(nomorAsli).then(() => {
-                alert("Nomor DANA disalin: " + nomorAsli);
-            });
+            alert("Nomor DANA disalin: 081234567890");
         }
 
         function showContent(id) {
             document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-
-            document.querySelectorAll('.menu button').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
         }
     </script>
 
